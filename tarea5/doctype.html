@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Libro de Recetas</title>
+</head>
+<body>
+    <h1>Libro de Recetas</h1>
+    <a href="{{ url_for('agregar_receta') }}">Agregar Nueva Receta</a>
+    <ul>
+        {% for receta in recetas %}
+            <li>
+                <a href="{{ url_for('ver_receta', nombre=receta) }}">{{ receta }}</a> 
+                | <a href="{{ url_for('actualizar_receta', nombre=receta) }}">Editar</a> 
+                | <a href="{{ url_for('eliminar_receta', nombre=receta) }}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
